@@ -10,12 +10,13 @@ pipeline {
                 checkout scm
                 }
             }
-        }
+         }
 
         stage('Build') { 
             steps { 
                 script{
                  app = docker.build("my-image:${env.BUILD_ID}")
+                }
             }
         }
         stage('Test'){
@@ -24,4 +25,4 @@ pipeline {
             }
         }
     }
-}
+}   
